@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:wicket>
+<head>
+<meta charset="UTF-8">
+<title>Hackathon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+  <div class="container">
+    <h3>チームの作品を登録する</h3>
+    <a href="#" wicket:id="edit">移動</a> 
+  
+    <h3>評価</h3>
+    <table class="table">
+      <tbody wicket:id="teams">
+        <tr>
+          <td colspan="2">チーム: <span wicket:id="id"></span></td>
+        </tr>
+        <tr>
+          <td colspan="2">作品名: <a href="#" wicket:id="url" target="_blank"><span wicket:id="title">作品名</span></a></td>
+        </tr>
+        <tr>
+          <td colspan="2">メンバー: <span wicket:id="members"></span></td>
+        </tr>
+        <tr>
+          <td colspan="2">コメント: <span wicket:id="comment"></span></td>
+        </tr>
+        <tr>
+          <td>動き</td>
+          <td><a href="#" wicket:id="action">action</a></td>
+        </tr>
+        <tr>
+          <td>見た目</td>
+          <td><a href="#" wicket:id="visual">visual</a></td>
+        </tr>
+        <tr>
+          <td>ストーリー</td>
+          <td><a href="#" wicket:id="story">story</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

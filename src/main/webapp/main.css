@@ -1,0 +1,18 @@
+.wicketRating {
+	border: 0px none transparent;
+	width: 150px;
+	padding: 0px;
+	text-align: center;
+}
+
+.wicketRatingStars {
+	background-color: #ffffff;
+}
+
+.wicketRatingStars img {
+	border: none;
+}
+
+.wicketRatingText {
+	display: none;
+}

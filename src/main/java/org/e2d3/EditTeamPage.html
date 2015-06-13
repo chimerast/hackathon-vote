@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:wicket>
+<head>
+<meta charset="UTF-8">
+<title>Edit Team</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h3>チーム編集</h3>
+        <form wicket:id="editForm">
+          <div class="form-group">
+            <label>チームID</label>
+            <div wicket:id="id" class="form-control-static">ID</div>
+          </div>
+          <div class="form-group">
+            <label>作品タイトル</label>
+            <input type="text" wicket:id="title" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>E2D3 プルリクエスト</label>
+            <input type="text" wicket:id="e2d3" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>コメント</label>
+            <textarea wicket:id="comment" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>作品のZIPファイル</label>
+            <input type="file" wicket:id="file">
+            <p class="help-block">ZIPファイルを選択してください</p>
+          </div>
+          <button type="submit" class="btn btn-primary">登録・更新</button>
+          <a href="#" wicket:id="cancel" class="btn btn-cancel">キャンセル</a>
+        </form>
+        <div wicket:id="feedback" style="margin-top: 10px"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
