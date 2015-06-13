@@ -68,6 +68,9 @@ public class ResultPage extends WebPage {
 
                 item.add(url);
 
+                String members = users.stream().filter((u) -> u.teamId.equals(teamId)).map((u) -> u.id).collect(Collectors.joining(" "));
+                item.add(new Label("members", members));
+
                 Double action = average(teamId, (r) -> r.action);
                 Double visual = average(teamId, (r) -> r.visual);
                 Double story = average(teamId, (r) -> r.story);
@@ -89,6 +92,7 @@ public class ResultPage extends WebPage {
     private Double average(String teamId, Function<Rating, Integer> extractor) {
         return users
             .stream()
+            .filter((u) -> u.ratings != null)
             .map((u) -> u.ratings.stream().filter((t) -> t.teamId.equals(teamId)).findFirst())
             .filter(Optional::isPresent)
             .map(Optional::get)

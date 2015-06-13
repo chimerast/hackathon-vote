@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="container">
-    <div>
+    <div style="margin-top: 20px">
       ソート:
       <a href="?sort=id">ID</a>
       <a href="?sort=action">動き</a>
@@ -25,6 +25,7 @@
         <tr>
           <th style="width: 20px">ID</th>
           <th>作品名</th>
+          <th>メンバー</th>
           <th style="width: 80px">動き</th>
           <th style="width: 80px">見た目</th>
           <th style="width: 80px">物語</th>
@@ -35,6 +36,7 @@
         <tr>
           <td wicket:id="id"></td>
           <td><a href="#" wicket:id="url" target="_blank"><span wicket:id="title">作品名</span></a></td>
+          <td><span wicket:id="members">members</span></td>
           <td><span wicket:id="action">action</span></td>
           <td><span wicket:id="visual">visual</span></td>
           <td><span wicket:id="story">story</span></td>

@@ -16,6 +16,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.ExternalLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -51,6 +52,15 @@ public class HomePage extends WebPage {
         super.onInitialize();
 
         add(new BookmarkablePageLink<Void>("edit", EditTeamPage.class));
+        add(new ExternalLink("view", StaticContents.getUrl(user.teamId)));
+
+        add(new Link<Void>("logout") {
+            @Override
+            public void onClick() {
+                UserData.get().setUserId(null);
+                setResponsePage(HomePage.class);
+            }
+        });
 
         add(new ListView<Team>("teams", new LoadableDetachableModel<List<Team>>() {
             @Override

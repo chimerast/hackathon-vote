@@ -6,4 +6,8 @@ public class StaticContents {
         return "/static/" + team.id + "/";
     }
 
+    public static String getUrl(String teamId) {
+        return "/static/" + teamId + "/";
+    }
+
 }
