@@ -104,6 +104,7 @@ public class ResultPage extends WebPage {
     private Double total(String teamId) {
         return users
             .stream()
+            .filter((u) -> u.ratings != null)
             .map((u) -> u.ratings.stream().filter((t) -> t.teamId.equals(teamId)).findFirst())
             .filter(Optional::isPresent)
             .map(Optional::get)

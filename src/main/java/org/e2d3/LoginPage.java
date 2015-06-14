@@ -1,6 +1,7 @@
 package org.e2d3;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
@@ -42,9 +43,7 @@ public class LoginPage extends WebPage {
         add(loginForm);
 
         List<String> teams = new ArrayList<String>();
-        for (int i = 0; i < 20; ++i) {
-            teams.add(Character.toString((char) ('A' + i)));
-        }
+        DAO.getTeamList().stream().sorted(Comparator.comparing((t) -> t.id)).forEach((t) -> teams.add(t.id));
 
         loginForm.add(new TextField<String>("userId").setRequired(true));
         loginForm.add(new DropDownChoice<String>("teamId", teams).setRequired(true));

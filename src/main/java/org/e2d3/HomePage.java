@@ -1,12 +1,11 @@
 package org.e2d3;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.apache.wicket.RestartResponseException;
@@ -65,6 +64,7 @@ public class HomePage extends WebPage {
         add(new ListView<Team>("teams", new LoadableDetachableModel<List<Team>>() {
             @Override
             protected List<Team> load() {
+                /*
 
                 Random rand = new Random(user.id.hashCode());
                 List<Team> teams = DAO.getTeamList();
@@ -75,9 +75,17 @@ public class HomePage extends WebPage {
                     boolean pos = (t.id.charAt(0) - 'A') < (size / 2);
                     return first != pos;
                 }).collect(Collectors.toList());
-
+                
                 Collections.shuffle(teams, rand);
                 return teams;
+                */
+
+                return DAO
+                    .getTeamList()
+                    .stream()
+                    .filter((t) -> !t.id.equals(user.teamId))
+                    .sorted(Comparator.comparing((t) -> t.id))
+                    .collect(Collectors.toList());
             }
         }) {
             @Override
